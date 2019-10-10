@@ -1,0 +1,254 @@
+[ {
+  "name" : "Neeha/notebook2",
+  "description" : "",
+  "tags" : null,
+  "version" : "5",
+  "layout" : "zeppelin",
+  "type" : "Default",
+  "style" : "default",
+  "readOnly" : false,
+  "snapshot" : false,
+  "template" : null,
+  "templateConfig" : null,
+  "paragraphs" : [ {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 1550,
+    "order" : 0,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgx\n\nconfig = new File('config_original.json')\nconfig.write('''\n{\n    \"name\":\"g_graph\",\n    \"vertex_id_type\": \"string\",\n    \"vertex_providers\":[\n        {\n        \"name\": \"bird\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/4g5edl7gltg14qo/birdNodes.csv?&raw=1\"],\n        \"key_column\": 1,\n        \"key_type\": \"string\",\n        \"props\": [\n            {\n              \"name\": \"Name\",\n              \"type\": \"string\",\n              \"column\": 1\n            }, {\n              \"name\": \"Gender\",\n              \"type\": \"string\",\n              \"column\": 2\n            }, {\n              \"name\": \"Age\",\n              \"type\": \"string\",\n              \"column\": 3\n            }, {\n              \"name\": \"Breed_Stage\",\n              \"type\": \"string\",\n              \"column\": 4\n            }\n        ]\n        }, {\n        \"name\": \"location\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/tju896zifdrmi3n/dateNodes.csv?&raw=1\"],\n        \"local_date_format\": [ \"dd.MM.yyyy\" ],\n        \"key_column\": 2,\n        \"key_type\": \"string\",\n        \"props\": [\n            {\n              \"name\": \"Date\",\n              \"type\": \"local_date\",\n              \"column\": 1\n            }, {\n              \"name\": \"Time\",\n              \"type\": \"string\",\n              \"column\": 2\n            }, {\n              \"name\": \"Latitude\",\n              \"type\": \"string\",\n              \"column\": 3\n            }, {\n              \"name\": \"Longitude\",\n              \"type\": \"string\",\n              \"column\": 4\n            }\n        ]\n        }\n    ] ,\n    \"edge_providers\":[{\n        \"name\": \"bird_to_time\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/iw8iz64bvzwog5y/penguin_time_edge.csv?&raw=1\"],\n        \"source_vertex_provider\":\"bird\",\n        \"destination_vertex_provider\":\"location\"\n    },{\n        \"name\": \"location_to_location\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/jg639jf1mszds71/time_time_edge.csv?&raw=1\"],\n        \"source_vertex_provider\":\"location\",\n        \"destination_vertex_provider\":\"location\",\n        \"source_column\": 2,\n        \"destination_column\": 3, \n        \"props\": [\n            {\n              \"name\": \"Penguin_Name\",\n              \"type\": \"string\",\n              \"column\": 1\n            }]\n    }\n    ]\n}\n''')\n\nsession.getGraphs().each { k,v -> v.destroy() }\ng = session.readGraphWithProperties('config_original.json')",
+    "selectedVisualization" : "raw",
+    "visualizationConfig" : null,
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569685483859,
+      "endTime" : 1569685493255,
+      "interpreter" : "pgx",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "PgxGraph[name=g_graph_2,N=7285,E=19967,created=1569685491763]",
+        "type" : "TEXT"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 2160,
+    "order" : 1,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgx\n\nconfig = new File('config_fake.json')\nconfig.write('''\n{\n    \"name\":\"graph_hack\",\n    \"vertex_id_type\": \"string\",\n    \"vertex_providers\":[\n        {\n        \"name\": \"penguin\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/76whjlw68mwwd56/penguinNode.csv?&raw=1\"],\n        \"key_column\": 1,\n        \"key_type\": \"string\",\n        \"props\": [\n            {\n              \"name\": \"Name\",\n              \"type\": \"string\",\n              \"column\": 1\n            }, {\n              \"name\": \"Gender\",\n              \"type\": \"string\",\n              \"column\": 2\n            }, {\n              \"name\": \"Age\",\n              \"type\": \"string\",\n              \"column\": 3\n            }, {\n              \"name\": \"Breed_Stage\",\n              \"type\": \"string\",\n              \"column\": 4\n            }, {\n              \"name\": \"Mother\",\n              \"type\": \"string\",\n              \"column\": 5\n            }, {\n              \"name\": \"Father\",\n              \"type\": \"string\",\n              \"column\": 6\n            }, {\n              \"name\": \"Brother\",\n              \"type\": \"string\",\n              \"column\": 7\n            }, {\n              \"name\": \"Sister\",\n              \"type\": \"string\",\n              \"column\": 8\n            }, {\n              \"name\": \"Image\",\n              \"type\": \"string\",\n              \"column\": 9\n            }, {\n              \"name\": \"StartLAT\",\n              \"type\": \"string\",\n              \"column\": 10\n            }, {\n              \"name\": \"StartLNG\",\n              \"type\": \"string\",\n              \"column\": 11\n            }\n        ]\n        }, {\n        \"name\": \"location\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/sdwidcltpipuhcl/locationNode.csv?&raw=1\"],\n        \"local_date_format\": [ \"dd.MM.yy\" ],\n        \"key_column\": 3,\n        \"key_type\": \"string\",\n        \"props\": [\n            {\n              \"name\": \"Date\",\n              \"type\": \"local_date\",\n              \"column\": 2\n            }, {\n              \"name\": \"Time\",\n              \"type\": \"string\",\n              \"column\": 3\n            }, {\n              \"name\": \"Latitude\",\n              \"type\": \"string\",\n              \"column\": 4\n            }, {\n              \"name\": \"Longitude\",\n              \"type\": \"string\",\n              \"column\": 5\n            }, {\n              \"name\": \"Image\",\n              \"type\": \"string\",\n              \"column\": 6\n            }\n        ]\n        }\n    ] ,\n    \"edge_providers\":[{\n        \"name\": \"penguin_to_location\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/30ti1ig6xrr5g48/PLedge.csv?&raw=1\"],\n        \"source_vertex_provider\":\"penguin\",\n        \"destination_vertex_provider\":\"location\"\n    },{\n        \"name\": \"location_to_location\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/944hpv229fd5w7a/LLedge.csv?&raw=1\"],\n        \"source_vertex_provider\":\"location\",\n        \"destination_vertex_provider\":\"location\",\n        \"source_column\": 2,\n        \"destination_column\": 3, \n        \"props\": [\n            {\n              \"name\": \"Penguin_Name\",\n              \"type\": \"string\",\n              \"column\": 1\n            }]\n    },{\n        \"name\": \"penguin_to_penguin\",\n        \"format\": \"csv\",\n        \"uris\": [\"https://www.dropbox.com/s/sunjdwqpy8u7onu/PPedge.csv?&raw=1\"],\n        \"source_vertex_provider\":\"penguin\",\n        \"destination_vertex_provider\":\"penguin\"\n    }\n    ]\n}\n''')\n\ng_fake = session.readGraphWithProperties('config_fake.json')",
+    "selectedVisualization" : "raw",
+    "visualizationConfig" : null,
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569685909114,
+      "endTime" : 1569685921290,
+      "interpreter" : "pgx",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "PgxGraph[name=graph_hack_7,N=7285,E=19997,created=1569685919316]",
+        "type" : "TEXT"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 484,
+    "order" : 2,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "\n%pgql\nSELECT b.Name, count(b) AS Total, count(l) AS Time\nFROM g\nMATCH (b:bird)-[bt:bird_to_time]-(l:location)\nGROUP BY b.Name\nORDER BY Total",
+    "selectedVisualization" : "pie",
+    "visualizationConfig" : "[{\"html\":{},\"table\":{},\"boxplot\":{},\"pie\":{\"title\":{\"text\":\"Different Species of Penguins Migrating\"},\"lastColumns\":[\"b.Name\",\"Total\",\"Time\"]}}]",
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : false,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569686224705,
+      "endTime" : 1569686224869,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "b.Name\tTotal\tTime\nWaRu\t430\t430\nGus\t439\t439\nSusi\t496\t496\nIona\t559\t559\nRuWa\t617\t617\nCaldera\t732\t732\nJacki\t1412\t1412\nLeo\t1419\t1419\nHansueli\t1435\t1435\nYoungster\t2445\t2445",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 467,
+    "order" : 3,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgql\nSELECT p.Breed_Stage, count(p) AS Penguin\nFROM g_fake \nMATCH (p:penguin)\nGROUP BY p.Breed_Stage\nORDER BY Penguin ",
+    "selectedVisualization" : "pie",
+    "visualizationConfig" : "[{\"table\":{},\"pie\":{\"title\":{\"text\":\"How Many Penguins Are Breeding?\"},\"lastColumns\":[\"p.Breed_Stage\",\"Penguin\"]}}]",
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569686847203,
+      "endTime" : 1569686847382,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "p.Breed_Stage\tPenguin\nbreeding\t2\nnon-breeding\t8",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 484,
+    "order" : 4,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgql\n\nselect p.Gender, count(p) as Penguins\n  from g_fake\n  match (p:penguin)\n  group by p.Gender\n  order by Penguins",
+    "selectedVisualization" : "bar",
+    "visualizationConfig" : "[{\"table\":{},\"pyramid\":{},\"tag\":{},\"ol-visualizer-picto-chart\":{},\"boxplot\":{},\"pie\":{},\"bar\":{\"title\":{\"text\":\"Gender Distribution\"},\"lastColumns\":[\"p.Gender\",\"Penguins\"]}}]",
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569686907144,
+      "endTime" : 1569686907324,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "p.Gender\tPenguins\nfemale\t5\nmale\t5",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 484,
+    "order" : 5,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgql\n\nselect p.Name AS Name, count(p) as Number_of_Sisters\n  from g_fake\n  match (p:penguin)-[p2p:penguin_to_penguin]->(p2:penguin)\n  where p.Sister = p2.Name\n  group by p.Name",
+    "selectedVisualization" : "bar",
+    "visualizationConfig" : null,
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569687198183,
+      "endTime" : 1569687198367,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "Name\tNumber_of_Sisters\nSusi\t1\nLeo\t1\nIona\t1",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 345,
+    "order" : 6,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgql\n\nselect count(p) AS num\n  from g_fake\n  match (p:penguin)\n  where p.Father = ''\n",
+    "selectedVisualization" : "table",
+    "visualizationConfig" : "[{\"visualization\":{\"graphAction\":{\"graphName\":\"graph_hack_7\",\"lastRun\":1569688065127,\"metadata\":{\"vertexProperties\":[{\"name\":\"id\",\"type\":\"string\"},{\"name\":\"Time\",\"type\":\"string\"},{\"name\":\"Sister\",\"type\":\"string\"},{\"name\":\"Name\",\"type\":\"string\"},{\"name\":\"Image\",\"type\":\"string\"},{\"name\":\"Breed_Stage\",\"type\":\"string\"},{\"name\":\"Longitude\",\"type\":\"string\"},{\"name\":\"Father\",\"type\":\"string\"},{\"name\":\"Mother\",\"type\":\"string\"},{\"name\":\"StartLNG\",\"type\":\"string\"},{\"name\":\"Date\",\"type\":\"local_date\"},{\"name\":\"Age\",\"type\":\"string\"},{\"name\":\"Brother\",\"type\":\"string\"},{\"name\":\"Latitude\",\"type\":\"string\"},{\"name\":\"StartLAT\",\"type\":\"string\"},{\"name\":\"Gender\",\"type\":\"string\"}],\"edgeProperties\":[{\"name\":\"id\",\"type\":\"integer\"},{\"name\":\"Penguin_Name\",\"type\":\"string\"}]}},\"lastColumns\":[\"p\"],\"version\":3},\"raw\":{}}]",
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569688596628,
+      "endTime" : 1569688596773,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "num\n5",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  }, {
+    "row" : 0,
+    "col" : 0,
+    "sizeX" : 0,
+    "sizeY" : 470,
+    "order" : 7,
+    "width" : 0,
+    "title" : null,
+    "hasTitle" : false,
+    "message" : "%pgql\nSELECT p.Age, count(p) AS Age\nFROM g_fake \nMATCH (p:penguin)\nGROUP BY p.Age \nORDER BY p.Age DESC",
+    "selectedVisualization" : "bar",
+    "visualizationConfig" : null,
+    "hideCode" : null,
+    "hideResult" : null,
+    "hideGutter" : null,
+    "hideVizConfig" : null,
+    "hideInIFrame" : null,
+    "dynamicFormParams" : null,
+    "result" : {
+      "startTime" : 1569703072417,
+      "endTime" : 1569703072572,
+      "interpreter" : "pgql",
+      "taskStatus" : "SUCCESS",
+      "status" : "SUCCESS",
+      "results" : [ {
+        "message" : "p.Age\tAge\n8\t1\n7\t1\n6\t1\n5\t1\n3\t1\n17\t1\n15\t1\n12\t1\n10\t2",
+        "type" : "TABLE"
+      } ]
+    },
+    "relations" : [ ]
+  } ]
+} ]
