@@ -11,4 +11,4 @@ Devpost Link: https://devpost.com/software/pengwin-7xw5nd
 
 Other Team Members: Sanjeep, Yejie, Houra.
 
-Note: The initial node-edge graph present in the charts.dsnb file was provided 
+Note: The initial node-edge graph present in the charts.dsnb file was provided by Sabrina from the ZoohOracle team. We performed further analysis on it.
