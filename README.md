@@ -1,5 +1,5 @@
 # PengWin-HackZurich
-A mobile application for the ‘Save the Penguins’ campaign.
+A mobile application for the ‘Save the Penguins’ campaign running under the supervision of ZoohOracle.
 
 • Performed exploratory data analysis on datasets provided by Zooh Zurich/Oracle using Oracle Data Studio, Python, & SQL.
 
