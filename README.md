@@ -8,6 +8,7 @@ conclusions made during the EDA.
 
 
 Devpost Link: https://devpost.com/software/pengwin-7xw5nd
+Try it Out: https://bit.ly/2IEE2zQ
 
 Other Team Members: Sanjeep, Yejie, Houra.
 
